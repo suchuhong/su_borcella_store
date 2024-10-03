@@ -1,5 +1,7 @@
 'use client'
 
+import useCart from '@/lib/hooks/useCart'
+
 import { CircleUserRound, Menu, Search, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,6 +12,7 @@ import { UserButton, useUser } from '@clerk/nextjs'
 const Navbar = () => {
   const [dropdownMenu, setDropdownMenu] = useState(false)
   const { user } = useUser()
+  const cart = useCart()
 
   return (
     <div className="sticky top-0 z-10 py-2 px-10 flex gap-2 justify-between items-center bg-white max-sm:px-2">
@@ -29,7 +32,7 @@ const Navbar = () => {
           className="flex items-center gap-3 border rounded-lg px-2 py-1 hover:bg-black hover:text-white max-md:hidden"
         >
           <ShoppingCart />
-          <p className="text-base-bold">Cart {0}</p>
+          <p className="text-base-bold">Cart ({cart.cartItems.length})</p>
         </Link>
         {/* menu */}
         <Menu
@@ -59,7 +62,7 @@ const Navbar = () => {
               className="flex items-center gap-3 border rounded-lg px-2 py-1 hover:bg-black hover:text-white"
             >
               <ShoppingCart />
-              <p className="text-base-bold">Cart {0}</p>
+              <p className="text-base-bold">Cart ({cart.cartItems.length})</p>
             </Link>
           </div>
         )}

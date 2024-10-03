@@ -88,6 +88,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         </div>
       </div>
       {/* 添加到购物车 */}
+      {/* 使用 useCart hook */}
       <button
         className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white"
         onClick={() => {
