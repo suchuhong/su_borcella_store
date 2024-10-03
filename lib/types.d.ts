@@ -20,3 +20,10 @@ type ProductType = {
   createdAt: string
   updatedAt: string
 }
+
+type UserType = {
+  clerkId: string
+  wishlist: [string]
+  createdAt: string
+  updatedAt: string
+}
